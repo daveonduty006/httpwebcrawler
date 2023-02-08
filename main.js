@@ -1,7 +1,7 @@
 const { crawlPage } = require('./crawl.js');
 
 
-const main = () => {
+const main = async () => {
     // process.argv represents the command passed in the terminal.
     // for example, the command 'npm start http://wagslane.dev' will have 3 args:
     //  -arg1 = ...\nodejs\node.exe        <- represents the interpreter (javascript is an interpreted language)
@@ -17,7 +17,10 @@ const main = () => {
     }
     const baseURL = process.argv[2];
     console.log(`starting crawl of ${baseURL}`);
-    crawlPage(baseURL);
+    const pages = await crawlPage(baseURL, baseURL, {});
+    for(const page of Object.entries(pages)){ // Object.entries() allows iterating through an object's attributes
+        console.log(page);
+    }
 }
 
 main();
