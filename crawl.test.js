@@ -1,4 +1,4 @@
-const { normalizeURL, getURLsFromHTML } = require("./crawl");
+const { normalizeURL, getURLsFromHTML } = require("./crawl.js");
 const { test, expect } = require("@jest/globals");
 
 // These tests are expecting the actual output of the tested function to equal 
